@@ -207,9 +207,9 @@ while run:
         elif current_file_format == FileFormat.CSV:
             with open(file, newline="") as csvfile:
                 reader = csv.reader(csvfile, delimiter=",")
-                for x, row in enumerate(reader):
-                    for y, tile in enumerate(row):
-                        world_data[x][y] = int(tile)
+                for y, row in enumerate(reader):
+                    for x, tile in enumerate(row):
+                        world_data[y][x] = int(tile)
         elif current_file_format == FileFormat.PICKLE:
             with open(file, "rb") as pickle_in:
                 world_data = pickle.load(pickle_in)
