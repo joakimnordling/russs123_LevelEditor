@@ -226,10 +226,11 @@ while run:
     pygame.draw.rect(screen, RED, button_list[current_tile].rect, 3)
 
     # scroll the map
-    if scroll_left == True and scroll > 0:
-        scroll -= 5 * scroll_speed
-    if scroll_right == True and scroll < (MAX_COLS * TILE_SIZE) - SCREEN_WIDTH:
-        scroll += 5 * scroll_speed
+    if scroll_left:
+        scroll = max(scroll - 5 * scroll_speed, 0)
+    if scroll_right:
+        max_scroll = MAX_COLS * TILE_SIZE - SCREEN_WIDTH
+        scroll = min(scroll + 5 * scroll_speed, max_scroll)
 
     # add new tiles to the screen
     # get mouse position
