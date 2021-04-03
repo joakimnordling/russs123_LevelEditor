@@ -218,10 +218,9 @@ while run:
     pygame.draw.rect(screen, GREEN, (SCREEN_WIDTH, 0, SIDE_MARGIN, SCREEN_HEIGHT))
 
     # choose a tile
-    button_count = 0
-    for button_count, i in enumerate(button_list):
-        if i.draw(screen):
-            current_tile = button_count
+    for i, button in enumerate(button_list):
+        if button.draw(screen):
+            current_tile = i
 
     # highlight the selected tile
     pygame.draw.rect(screen, RED, button_list[current_tile].rect, 3)
